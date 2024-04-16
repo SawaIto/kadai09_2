@@ -99,8 +99,8 @@ $v  =  $stmt->fetch(); //PDO::FETCH_ASSOC[カラム名のみで取得できる�
                     class="border border-blue-400 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
             </label>
             <label class="flex flex-col">
-                <span>年齢:(再度選択してください)</span>
-                <select name="age" value="<?=$v["age"]?>" required
+                <span>年齢:</span>
+                <select name="age" id="age" value="<?=$v["age"]?>" required
                     class="border border-blue-400 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <option value="20～39歳">20～39歳</option>
                     <option value="40～59歳">40～59歳</option>
@@ -109,8 +109,8 @@ $v  =  $stmt->fetch(); //PDO::FETCH_ASSOC[カラム名のみで取得できる�
                 </select>
             </label>
             <label class="flex flex-col">
-                <span>満足度:(再度選択してください)</span>
-                <select name="satisfaction" value="<?=$v["satisfaction"]?>" required
+                <span>満足度:</span>
+                <select id="satisfaction" name="satisfaction" value="<?=$v["satisfaction"]?>" required
                     class="border border-blue-400 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <option value="">選択してください</option>
                     <option value="5">5 (大変満足)</option>
@@ -132,6 +132,19 @@ $v  =  $stmt->fetch(); //PDO::FETCH_ASSOC[カラム名のみで取得できる�
     </div>
 
 <!-- Main[End] -->
+
+<script>
+    // 特定のIDに基づいてselect要素を選択
+    var ageValue = "<?=$v["age"]?>"; // PHPで取得した年齢の値を設定
+    // 年齢の値に基づいて選択を設定
+    document.getElementById('age').value = ageValue;
+
+    // 特定のIDに基づいてselect要素を選択
+    var satisfactionValue = "<?=$v["satisfaction"]?>"; // PHPで取得した満足度の値を設定
+    // 年齢の値に基づいて選択を設定
+    document.getElementById('satisfaction').value = satisfactionValue;
+
+</script>
 
 </body>
 </html>
